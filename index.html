@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My First Project</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f2f2f2;
+            padding-top: 50px;
+        }
+
+        .calculator {
+            background: white;
+            width: 300px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px #aaa;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 7px;
+            font-size: 18px;
+        }
+
+        button {
+            padding: 12px 18px;
+            margin: 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 22px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator">
+
+        <h2>🧮 آلة حاسبة</h2>
+
+        <input type="number" id="num1" placeholder="العدد الأول">
+
+        <input type="number" id="num2" placeholder="العدد الثاني">
+
+        <br>
+
+        <button onclick="calculate('+')">+</button>
+        <button onclick="calculate('-')">−</button>
+        <button onclick="calculate('*')">×</button>
+        <button onclick="calculate('/')">÷</button>
+
+        <div id="result">النتيجة: 0</div>
+
+    </div>
+
+    <script>
+        function calculate(operation) {
+
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+
+            let result;
+
+            if (operation === '+') {
+                result = num1 + num2;
+            }
+            else if (operation === '-') {
+                result = num1 - num2;
+            }
+            else if (operation === '*') {
+                result = num1 * num2;
+            }
+            else if (operation === '/') {
+
+                if (num2 === 0) {
+                    result = "لا يمكن القسمة على صفر";
+                } else {
+                    result = num1 / num2;
+                }
+            }
+
+            document.getElementById("result").innerText =
+                "النتيجة: " + result;
+        }
+    </script>
+
+</body>
+</html>
